@@ -1,6 +1,5 @@
 package com.example.irvin.smartorder;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,9 +18,9 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class registrarse extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
+public class iniciar_sesion extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
-    private EditText nombre, usuario, pass1, pass2;
+    private EditText usuario, pass;
     private Button aceptar;
 
     private RequestQueue rq;
@@ -30,32 +29,26 @@ public class registrarse extends AppCompatActivity implements Response.Listener<
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registrarse);
+        setContentView(R.layout.activity_iniciar_sesion);
         getSupportActionBar().hide();
 
-        nombre = (EditText) findViewById(R.id.ED_nombre);
         usuario = (EditText) findViewById(R.id.ED_usuario);
-        pass1 = (EditText) findViewById(R.id.ED_pass1);
-        pass2 = (EditText) findViewById(R.id.ED_pass2);
+        pass = (EditText) findViewById(R.id.ED_pass);
         aceptar = (Button) findViewById(R.id.BTN_aceptar);
 
         rq = Volley.newRequestQueue(this);
     }
 
     public void clic(View view){
-        if(!nombre.getText().toString().isEmpty() && !usuario.getText().toString().isEmpty() &&
-        !pass1.getText().toString().isEmpty() && !pass2.getText().toString().isEmpty()){
-            if(pass1.getText().toString().equals(pass2.getText().toString())){
-                registrar();
-            }
+        if(!usuario.getText().toString().isEmpty() && !pass.getText().toString().isEmpty()){
+            iniciarSesion();
         }else
             Toast.makeText(this,"Llena todos los campos",Toast.LENGTH_SHORT).show();
     }
 
-    public void registrar(){
-        String url = "https://ezjr.000webhostapp.com/PHP/insertar_usuario.php?nombre="+nombre.getText().toString()
-                +"&usuario="+usuario.getText().toString()+"&contrasena="+pass1.getText().toString();
-        jrq = new JsonObjectRequest(Request.Method.POST,url,null,this,this);
+    public void iniciarSesion(){
+        String url = "https://ezjr.000webhostapp.com/PHP/getUsuario_nomUsuario.php?usuario="+usuario.getText().toString();
+        jrq = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         rq.add(jrq);
     }
 
@@ -68,23 +61,13 @@ public class registrarse extends AppCompatActivity implements Response.Listener<
     public void onResponse(JSONObject response) {
         try {
             String resultado = response.getString("resultado");
-            Toast.makeText(registrarse.this,resultado,Toast.LENGTH_SHORT).show();
-            if(resultado.equals("Te has registrado correctamente")){
-                limpiarCampos();
-                Intent intent = new Intent(registrarse.this,iniciar_sesion.class);
-                startActivity(intent);
-            }else if(resultado.equals("Usuario ya registrado, escoge otro")){
-
-            }
+            Toast.makeText(iniciar_sesion.this,resultado,Toast.LENGTH_SHORT).show();
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
-
     public void limpiarCampos(){
-        nombre.setText("");
         usuario.setText("");
-        pass1.setText("");
-        pass2.setText("");
+        pass.setText("");
     }
 }

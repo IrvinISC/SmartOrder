@@ -19,4 +19,8 @@ public class Inicio extends AppCompatActivity {
         Intent intent = new Intent(this,registrarse.class);
         startActivity(intent);
     }
+    public void iniciarSesion(View view){
+        Intent intent = new Intent(this,iniciar_sesion.class);
+        startActivity(intent);
+    }
 }
