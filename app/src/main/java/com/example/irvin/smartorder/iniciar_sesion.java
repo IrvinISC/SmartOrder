@@ -1,5 +1,6 @@
 package com.example.irvin.smartorder;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,8 @@ public class iniciar_sesion extends AppCompatActivity implements Response.Listen
 
     private RequestQueue rq;
     private JsonRequest jrq;
+
+    private String user, password, nombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +64,23 @@ public class iniciar_sesion extends AppCompatActivity implements Response.Listen
     public void onResponse(JSONObject response) {
         try {
             String resultado = response.getString("resultado");
-            Toast.makeText(iniciar_sesion.this,resultado,Toast.LENGTH_SHORT).show();
+            if(resultado.equals("Usuario y/o contraseña incorrectos")){
+                Toast.makeText(iniciar_sesion.this,"Usuario y/o contraseña incorrectos",Toast.LENGTH_SHORT).show();
+            }else{
+                JSONObject datosJSON = new JSONObject(response.getString("resultado"));
+                nombre = datosJSON.getString("Nombre");
+                user = datosJSON.getString("Usuario");
+                password = datosJSON.getString("contrasena");
+                if(password.equals(pass.getText().toString())){
+                    limpiarCampos();
+                    Intent intent = new Intent(iniciar_sesion.this,escoger_lugar.class);
+                    startActivity(intent);
+                    Toast.makeText(iniciar_sesion.this,"Bienvenido "+nombre,Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(iniciar_sesion.this,"Usuario y/o contraseña incorrectos",Toast.LENGTH_SHORT).show();
+                }
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -11,15 +11,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".iniciar_sesion"></activity>
-        <activity android:name=".registrarse" />
-        <activity android:name=".Inicio">
+        <activity
+            android:name=".menu"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".escoger_lugar"
+            android:screenOrientation="landscape"
+            />
+        <activity
+            android:name=".iniciar_sesion"
+            android:screenOrientation="landscape"
+            />
+        <activity
+            android:name=".registrarse"
+            android:screenOrientation="landscape"
+            />
+        <activity
+            android:name=".Inicio"
+            android:screenOrientation="landscape"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".lista_categoria"
+            android:screenOrientation="landscape"
+            ></activity>
     </application>
 
 </manifest>
