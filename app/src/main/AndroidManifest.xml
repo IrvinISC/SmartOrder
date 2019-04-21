@@ -12,35 +12,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".menu"
-            android:screenOrientation="landscape">
+            android:name=".menu">
         </activity>
         <activity
             android:name=".escoger_lugar"
-            android:screenOrientation="landscape"
             />
         <activity
-            android:name=".iniciar_sesion"
-            android:screenOrientation="landscape"
-            />
+            android:name=".iniciar_sesion"/>
         <activity
-            android:name=".registrarse"
-            android:screenOrientation="landscape"
-            />
+            android:name=".registrarse"/>
         <activity
-            android:name=".Inicio"
-            android:screenOrientation="landscape"
-            >
+            android:name=".Inicio">
+        </activity>
+        <activity
+            android:name=".lista_categoria">
+        </activity>
+        <activity
+            android:name=".splash"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".lista_categoria"
-            android:screenOrientation="landscape"
-            ></activity>
     </application>
 
 </manifest>

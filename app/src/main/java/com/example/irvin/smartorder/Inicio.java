@@ -11,8 +11,8 @@ public class Inicio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
-
         getSupportActionBar().hide();
+
     }
 
     public void registrarse(View view){
@@ -21,6 +21,10 @@ public class Inicio extends AppCompatActivity {
     }
     public void iniciarSesion(View view){
         Intent intent = new Intent(this,iniciar_sesion.class);
+        startActivity(intent);
+    }
+    public void escoger(View view){
+        Intent intent = new Intent(this,escoger_lugar.class);
         startActivity(intent);
     }
 }
