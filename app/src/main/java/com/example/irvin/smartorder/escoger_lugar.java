@@ -15,7 +15,7 @@ public class escoger_lugar extends AppCompatActivity {
     }
 
     public void menu(View view){
-        Intent intent = new Intent(this, menu.class);
+        Intent intent = new Intent(this, preparar_menu.class);
         startActivity(intent);
     }
 }

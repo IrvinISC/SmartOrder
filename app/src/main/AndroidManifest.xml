@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".menu">
+            android:name=".preparar_menu">
         </activity>
         <activity
             android:name=".escoger_lugar"
@@ -25,7 +25,7 @@
             android:name=".Inicio">
         </activity>
         <activity
-            android:name=".lista_categoria">
+            android:name=".menu">
         </activity>
         <activity
             android:name=".splash"

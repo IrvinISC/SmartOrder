@@ -16,7 +16,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,18 +31,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:fontFamily="@font/beauty"
+                android:fontFamily="@font/roboto"
                 android:gravity="center"
-                android:text="{SmartOrder}"
+                android:text="Smart Order"
                 android:textColor="@drawable/txt_btn_uno"
                 android:textSize="@android:dimen/app_icon_size" />
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/icono"
+                android:layout_gravity="center"
                 android:layout_marginBottom="5dp"
-                app:srcCompat="@drawable/icono" />
+                android:layout_marginTop="5dp"/>
 
             <Button
                 android:id="@+id/button"
@@ -51,12 +54,12 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/btn_uno"
-                android:fontFamily="@font/nova"
                 android:onClick="iniciarSesion"
                 android:padding="15dp"
                 android:text="Iniciar sesión"
                 android:textColor="@drawable/txt_btn_uno"
-                android:textSize="36sp"
+                android:textSize="25sp"
+                android:fontFamily="@font/roboto"
                 tools:layout_editor_absoluteX="162dp"
                 tools:layout_editor_absoluteY="341dp" />
 
@@ -68,12 +71,12 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/btn_uno"
-                android:fontFamily="@font/nova"
                 android:onClick="registrarse"
                 android:padding="15dp"
+                android:fontFamily="@font/roboto"
                 android:text="Registrarse"
                 android:textColor="@drawable/txt_btn_uno"
-                android:textSize="36sp"
+                android:textSize="25sp"
                 tools:layout_editor_absoluteX="161dp"
                 tools:layout_editor_absoluteY="432dp" />
 
@@ -86,6 +89,7 @@
                 android:gravity="right"
                 android:onClick="escoger"
                 android:paddingRight="40dp"
+                android:fontFamily="@font/roboto"
                 android:text="Omitir"
                 android:textColor="@drawable/txt_btn_uno"
                 android:textSize="20sp" />

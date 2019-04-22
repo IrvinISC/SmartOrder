@@ -5,7 +5,7 @@
         android:radius="150dp"
         />
     <stroke
-        android:color="@android:color/holo_orange_dark"
+        android:color="#d7761b"
         android:width="5px"/>
 
     <solid android:color="@color/naranja"/>

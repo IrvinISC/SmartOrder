@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.view.View;
 import android.widget.Button;
@@ -61,7 +60,7 @@ public class adaptador_categoria extends BaseAdapter implements View.OnClickList
         ViewHolder holder;
         if(convertView == null){
 
-            view = inflater.inflate(R.layout.activity_categoria,null);
+            view = inflater.inflate(R.layout.boton_categoria,null);
 
             holder = new ViewHolder();
             holder.button = (Button) view.findViewById(R.id.BTN_categoria);
@@ -89,7 +88,7 @@ public class adaptador_categoria extends BaseAdapter implements View.OnClickList
 
         @Override
         public void onClick(View v) {
-            lista_categoria lista_categoria = (com.example.irvin.smartorder.lista_categoria)activity;
+            menu lista_categoria = (menu)activity;
             lista_categoria.onItemClick(mPosition);
         }
 
