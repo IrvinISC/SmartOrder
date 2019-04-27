@@ -22,23 +22,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Donde comeras hoy?"
+                android:text="Donde comerás hoy?"
                 android:textColor="@drawable/txt_btn_uno"
                 android:textSize="@android:dimen/app_icon_size"
                 android:textStyle="bold"
                 android:fontFamily="@font/roboto"
                 android:background="@android:color/transparent"
                 android:gravity="center"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="5dp"
+                android:shadowColor="#666666"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,31 +76,43 @@
 
                 <Button
                     android:id="@+id/button3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="menu"
-                    android:text="Comer aqui"
+                    android:text="Comer aquí"
                     android:textSize="25sp"
                     android:fontFamily="@font/roboto"
-                    android:background="@drawable/btn_uno"
+                    android:background="@drawable/shadow"
                     android:textColor="@drawable/txt_btn_uno"
                     android:padding="15dp"
-                    android:layout_marginRight="5dp"/>
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="25dp"
+                    android:elevation="10dp"
+                    android:shadowColor="#666666"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
 
                 <Button
                     android:id="@+id/button4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="menu"
                     android:text="Para llevar"
                     android:textSize="25sp"
                     android:fontFamily="@font/roboto"
-                    android:background="@drawable/btn_uno"
+                    android:background="@drawable/shadow"
                     android:textColor="@drawable/txt_btn_uno"
                     android:padding="15dp"
-                    android:layout_marginLeft="5dp"/>
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="25dp"
+                    android:elevation="10dp"
+                    android:shadowColor="#666666"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

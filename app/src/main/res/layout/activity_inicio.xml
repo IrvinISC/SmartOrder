@@ -22,9 +22,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/TV_titulo"
@@ -35,7 +33,11 @@
                 android:gravity="center"
                 android:text="Smart Order"
                 android:textColor="@drawable/txt_btn_uno"
-                android:textSize="@android:dimen/app_icon_size" />
+                android:textSize="@android:dimen/app_icon_size"
+                android:shadowColor="#666666"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"/>
 
             <ImageView
                 android:id="@+id/imageView"
@@ -53,15 +55,20 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/btn_uno"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
+                android:background="@drawable/shadow"
                 android:onClick="iniciarSesion"
                 android:padding="15dp"
                 android:text="Iniciar sesión"
                 android:textColor="@drawable/txt_btn_uno"
                 android:textSize="25sp"
                 android:fontFamily="@font/roboto"
-                tools:layout_editor_absoluteX="162dp"
-                tools:layout_editor_absoluteY="341dp" />
+                android:elevation="10dp"
+                android:shadowColor="#666666"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"/>
 
             <Button
                 android:id="@+id/button2"
@@ -70,15 +77,20 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/btn_uno"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
+                android:background="@drawable/shadow"
                 android:onClick="registrarse"
                 android:padding="15dp"
                 android:fontFamily="@font/roboto"
                 android:text="Registrarse"
                 android:textColor="@drawable/txt_btn_uno"
                 android:textSize="25sp"
-                tools:layout_editor_absoluteX="161dp"
-                tools:layout_editor_absoluteY="432dp" />
+                android:elevation="10dp"
+                android:shadowColor="#666666"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"/>
 
             <Button
                 android:id="@+id/BTN_omitir"
@@ -92,7 +104,11 @@
                 android:fontFamily="@font/roboto"
                 android:text="Omitir"
                 android:textColor="@drawable/txt_btn_uno"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:shadowColor="#666666"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1" />
         </LinearLayout>
     </ScrollView>
 

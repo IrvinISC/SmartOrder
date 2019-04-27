@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
     <Button
-        android:id="@+id/BTN_categoria"
+        android:id="@+id/BTN_des"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Button"
         android:background="@android:color/transparent"
-        android:textColor="@drawable/txt_btn_uno"
+        android:textColor="@drawable/txt_btn_tres"
         android:fontFamily="@font/roboto"
-        android:textSize="25sp"
+        android:textSize="15sp"
         android:padding="15dp"
         android:layout_marginBottom="5dp"
-        android:shadowColor="#333333"
+        android:shadowColor="#666666"
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="1"/>
+
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
@@ -27,6 +28,7 @@
         android:text=""
         android:background="@color/grisM"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="2dp"/>
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"/>
 
 </LinearLayout>

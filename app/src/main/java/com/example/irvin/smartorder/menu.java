@@ -1,19 +1,20 @@
 package com.example.irvin.smartorder;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class menu extends AppCompatActivity {
 
-    ListView lista;
-    adaptador_categoria adaptador_categoria;
-    public menu menu = null;
-    public ArrayList<categoria> arrayList = new ArrayList<categoria>();
+    List<categoria> lista_cat;
+    ListView listView,listView2;
+    Button ordenar;
     ArrayList<String> nom;
 
     @Override
@@ -22,27 +23,23 @@ public class menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         getSupportActionBar().hide();
 
-        menu = this;
         nom = getIntent().getStringArrayListExtra("nombre");
+        lista_cat = new ArrayList<>();
         for(int i = 0;i < nom.size();i++){
-            setListData(nom.get(i));
+            lista_cat.add(new categoria(nom.get(i)));
         }
-        Resources resources = getResources();
-        lista = (ListView) findViewById(R.id.LV_categoria);
+        ordenar = (Button) findViewById(R.id.BTN_ordenar);
+        listView = (ListView) findViewById(R.id.LV_categoria);
+        listView2 = (ListView) findViewById(R.id.LV_productos);
+        adaptador_categoria adaptador_categoria = new adaptador_categoria(this,R.layout.boton_categoria,lista_cat,listView2,ordenar,this);
 
-        adaptador_categoria = new adaptador_categoria(menu,arrayList,resources);
-        lista.setAdapter(adaptador_categoria);
-    }
+        listView.setAdapter(adaptador_categoria);
 
-    public void setListData(String nombre){
-        final categoria categoria = new categoria();
-        categoria.setNombre(nombre);
-        arrayList.add(categoria);
-    }
-
-    public void onItemClick(int mPosition){
-        categoria categoria = (com.example.irvin.smartorder.categoria) arrayList.get(mPosition);
-        Toast.makeText(menu.this,categoria.getNombre(),Toast.LENGTH_SHORT).show();
-
+        ordenar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(menu.this,"No has seleccionado tu comida",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

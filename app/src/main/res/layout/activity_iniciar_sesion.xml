@@ -38,7 +38,11 @@
                 android:textStyle="bold"
                 android:gravity="center"
                 android:background="@android:color/transparent"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="5dp"
+                android:shadowColor="#666666"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"/>
 
             <EditText
                 android:id="@+id/ED_usuario"
@@ -50,7 +54,11 @@
                 android:textSize="20sp"
                 android:textColor="@drawable/txt_btn_uno"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="5dp"
+                android:shadowColor="#666666"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"/>
 
             <EditText
                 android:id="@+id/ED_pass"
@@ -62,7 +70,11 @@
                 android:textSize="20sp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
-                android:textColor="@drawable/txt_btn_uno"/>
+                android:textColor="@drawable/txt_btn_uno"
+                android:shadowColor="#666666"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"/>
 
             <Button
                 android:id="@+id/BTN_aceptar"
@@ -73,10 +85,14 @@
                 android:text="Aceptar"
                 android:textSize="25sp"
                 android:fontFamily="@font/roboto"
-                android:background="@drawable/btn_uno"
+                android:background="@drawable/shadow"
                 android:textColor="@drawable/txt_btn_uno"
                 android:padding="15dp"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp"
+                android:shadowColor="#666666"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"/>
         </LinearLayout>
     </ScrollView>
 

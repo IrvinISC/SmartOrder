@@ -21,5 +21,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:shadowColor="#666666"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"/>
 </android.support.constraint.ConstraintLayout>

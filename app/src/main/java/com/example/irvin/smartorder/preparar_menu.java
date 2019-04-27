@@ -36,7 +36,7 @@ public class preparar_menu extends AppCompatActivity implements Response.Listene
     }
 
     public void crearListaCategorias(){
-        String url = "https://ezjr.000webhostapp.com/PHP/getCategorias.php";
+        String url = "https://ezjr.000webhostapp.com/PHP/getCategorias.php?categoria";
         jrq = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         rq.add(jrq);
     }
@@ -49,6 +49,7 @@ public class preparar_menu extends AppCompatActivity implements Response.Listene
     @Override
     public void onResponse(JSONObject response) {
         try {
+            //----------categorias------------
             //Recuperar el JSONArray que devuelve la consulta con la clave resultado
             JSONArray arreglo = new JSONArray(response.getString("resultado"));
             //Separar cada elemento del arreglo en un JSONObject
