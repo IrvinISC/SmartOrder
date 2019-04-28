@@ -17,6 +17,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,17 +52,18 @@ public class adaptador_orden extends ArrayAdapter<producto> {
 
         TextView pro = (TextView) view.findViewById(R.id.TV_producto);
         TextView precio = (TextView) view.findViewById(R.id.TV_precio);
-        ImageButton editar = (ImageButton) view.findViewById(R.id.IB_editar);
-        ImageButton borrar = (ImageButton) view.findViewById(R.id.IB_borrar);
+        final LottieAnimationView editar = (LottieAnimationView) view.findViewById(R.id.LA_editar);
+        final LottieAnimationView borrar = (LottieAnimationView) view.findViewById(R.id.LA_borrar);
 
         final producto producto = lista_pro.get(position);
 
         pro.setText(producto.getNombre());
-        precio.setText(producto.getPrecio());
+        precio.setText("$"+producto.getPrecio());
 
         editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editar.playAnimation();
                 String lista_ing = lista_pro.get(position).getIngredientes();
                 ingredientes(lista_ing);
                 //Toast.makeText(context,lista_ing,Toast.LENGTH_SHORT).show();
@@ -69,6 +72,7 @@ public class adaptador_orden extends ArrayAdapter<producto> {
         borrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                borrar.playAnimation();
                 /*Toast.makeText(context,"id: "+lista_pro.get(position).getId()+
                         ", nombre: "+lista_pro.get(position).getNombre()+
                         ", precio: "+lista_pro.get(position).getPrecio()+

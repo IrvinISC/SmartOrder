@@ -14,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,15 +57,19 @@ public class adaptador_producto extends ArrayAdapter<producto> {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(resource,null);
 
-        Button button = (Button) view.findViewById(R.id.BTN_des);
+        Button nombre = (Button) view.findViewById(R.id.BTN_nom);
+        Button precio = (Button) view.findViewById(R.id.BTN_pre);
+        final LottieAnimationView agregar = (LottieAnimationView) view.findViewById(R.id.LA_agregar);
 
         final producto producto = lista_pro.get(position);
 
-        button.setText(producto.getNombre()+", Precio: "+producto.getPrecio());
+        nombre.setText(producto.getNombre());
+        precio.setText("$"+producto.getPrecio());
 
-        button.setOnClickListener(new View.OnClickListener() {
+        agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                agregar.playAnimation();
                 bandera = false;
                 agregarProducto(lista_pro.get(position).getNombre(),lista_pro.get(position).getPrecio(),lista_pro.get(position).getIngredientes());
             }
@@ -76,7 +82,7 @@ public class adaptador_producto extends ArrayAdapter<producto> {
         String consulta = "INSERT INTO pro_seleccionados(nombre,precio,ingredientes) VALUES('"+nombre+"','"+precio+"','"+ingredientes+"')";
         bd.execSQL(consulta);
         bd.close();
-        Toast.makeText(context,"Producto agregado",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context,"Producto agregado",Toast.LENGTH_SHORT).show();
     }
     public String reporteProducto() {
         baseDatosLocal md = new baseDatosLocal(context, "BD_SO", null, VERSION);

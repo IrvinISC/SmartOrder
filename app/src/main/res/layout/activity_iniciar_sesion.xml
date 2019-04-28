@@ -31,68 +31,100 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Iniciar sesion"
-                android:textColor="@drawable/txt_btn_uno"
-                android:textSize="@android:dimen/app_icon_size"
-                android:fontFamily="@font/roboto"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:background="@android:color/transparent"
                 android:layout_marginBottom="5dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
                 android:shadowColor="#666666"
                 android:shadowDx="2"
                 android:shadowDy="2"
-                android:shadowRadius="2"/>
-
-            <EditText
-                android:id="@+id/ED_usuario"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Usuario"
-                android:inputType="textPersonName"
-                android:textSize="20sp"
+                android:shadowRadius="2"
+                android:text="Iniciar sesion"
                 android:textColor="@drawable/txt_btn_uno"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:shadowColor="#666666"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="1"/>
+                android:textSize="@android:dimen/app_icon_size"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/ED_pass"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Contraseña"
-                android:inputType="textPassword"
-                android:textSize="20sp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@drawable/txt_btn_uno"
-                android:shadowColor="#666666"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="1"/>
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ED_usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:hint="Usuario"
+                    android:inputType="textPersonName"
+                    android:shadowColor="#666666"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:textColor="@drawable/txt_btn_uno"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/LA_usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:lottie_imageAssetsFolder="assets"
+                    app:lottie_loop="false"
+                    android:layout_weight="8"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ED_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:shadowColor="#666666"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:textColor="@drawable/txt_btn_uno"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/LA_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:lottie_imageAssetsFolder="assets"
+                    app:lottie_loop="false"
+                    android:layout_weight="8"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
 
             <Button
                 android:id="@+id/BTN_aceptar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:onClick="clic"
-                android:text="Aceptar"
-                android:textSize="25sp"
-                android:fontFamily="@font/roboto"
-                android:background="@drawable/shadow"
-                android:textColor="@drawable/txt_btn_uno"
-                android:padding="15dp"
                 android:layout_marginTop="5dp"
+                android:background="@drawable/shadow"
+                android:fontFamily="@font/roboto"
+                android:onClick="onExplodeClicked"
+                android:padding="15dp"
                 android:shadowColor="#666666"
                 android:shadowDx="1"
                 android:shadowDy="1"
-                android:shadowRadius="1"/>
+                android:shadowRadius="1"
+                android:text="Aceptar"
+                android:textColor="@drawable/txt_btn_uno"
+                android:textSize="25sp" />
         </LinearLayout>
     </ScrollView>
 

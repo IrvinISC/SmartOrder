@@ -10,51 +10,51 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp">
+        android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/TV_producto"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:text="TextView"
             android:textColor="@android:color/black"
             android:shadowColor="#666666"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="1"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/TV_precio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingLeft="40dp"
             android:text="TextView"
+            android:paddingLeft="40dp"
             android:textColor="@android:color/black"
             android:shadowColor="#666666"
             android:shadowDx="1"
             android:shadowDy="1"
-            android:shadowRadius="1" />
+            android:shadowRadius="1"
+            android:layout_weight="1"/>
 
-        <ImageButton
-            android:id="@+id/IB_editar"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/LA_editar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/editar_ing"
-            android:background="@android:color/transparent"/>
+            android:layout_height="40dp"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_fileName="editar.json"
+            app:lottie_loop="false"
+            android:layout_weight="1"/>
 
-        <ImageButton
-            android:id="@+id/IB_borrar"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/LA_borrar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/borrar"
-            android:background="@android:color/transparent"
-            android:paddingLeft="30dp"/>
+            android:layout_height="40dp"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_fileName="borrar.json"
+            app:lottie_loop="false"
+            android:layout_weight="1"/>
     </LinearLayout>
     <TextView
         android:id="@+id/textView7"

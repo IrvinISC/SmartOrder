@@ -3,22 +3,55 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-    <Button
-        android:id="@+id/BTN_des"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Button"
-        android:background="@android:color/transparent"
-        android:textColor="@drawable/txt_btn_tres"
-        android:fontFamily="@font/roboto"
-        android:textSize="15sp"
-        android:padding="15dp"
-        android:layout_marginBottom="5dp"
-        android:shadowColor="#666666"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="1"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/LA_agregar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_fileName="agregar.json"
+            app:lottie_loop="false"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/BTN_nom"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/roboto"
+            android:shadowColor="#666666"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="Button"
+            android:textColor="@drawable/txt_btn_tres"
+            android:textSize="15sp"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/BTN_pre"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/roboto"
+            android:shadowColor="#666666"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="Button"
+            android:textColor="@drawable/txt_btn_cuatro"
+            android:textSize="15sp"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView7"
@@ -29,6 +62,7 @@
         android:background="@color/grisM"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"/>
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="5dp"/>
 
 </LinearLayout>
