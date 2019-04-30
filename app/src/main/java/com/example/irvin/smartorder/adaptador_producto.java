@@ -25,7 +25,7 @@ public class adaptador_producto extends ArrayAdapter<producto> {
     int resource;
     List<producto> lista_pro;
     Button ordenar;
-    private int VERSION = 5;
+    private int VERSION = 6;
     Activity activity;
     boolean bandera = true;
 
@@ -42,7 +42,7 @@ public class adaptador_producto extends ArrayAdapter<producto> {
             @Override
                 public void onClick(View v) {
                 if(bandera || reporteProducto().equals("No hay productos registrados")){
-                    Toast.makeText(context,"No has seleccionado tu comida",Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(context,"No has seleccionado tu comida",Toast.LENGTH_SHORT).show();
                 }
                 if(!bandera || reporteProducto().equals("")){
                     Intent intent = new Intent(context,ordenar.class);

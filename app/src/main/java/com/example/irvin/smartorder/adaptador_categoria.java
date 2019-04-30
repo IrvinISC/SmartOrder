@@ -11,9 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -44,9 +46,15 @@ public class adaptador_categoria extends ArrayAdapter<categoria> implements Resp
     ArrayList<String> nombres;
     ArrayList<String> precios;
     ArrayList<String> ingredientes;
-
     Activity activity;
-    public adaptador_categoria(Context context, int resource, List<categoria> lista_cat, ListView listView2, Button ordenar, Activity activity){
+    LottieAnimationView buscar;
+    EditText ED_buscar;
+    int opcion;
+
+    public adaptador_categoria(Context context, int resource,
+                               List<categoria> lista_cat, ListView listView2,
+                               Button ordenar, Activity activity,
+                               final LottieAnimationView buscar, final EditText ED_buscar){
         super(context,resource,lista_cat);
 
         this.context = context;
@@ -55,8 +63,19 @@ public class adaptador_categoria extends ArrayAdapter<categoria> implements Resp
         this.listView2 = listView2;
         this.ordenar = ordenar;
         this.activity = activity;
-
+        this.buscar = buscar;
+        this.ED_buscar = ED_buscar;
         lista_pro = new ArrayList<>();
+        buscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buscar.playAnimation();
+                opcion = 2;
+                crearListaProductos(ED_buscar.getText().toString(),opcion);
+            }
+        });
+
+        rq = Volley.newRequestQueue(context);
     }
 
     @NonNull
@@ -77,17 +96,24 @@ public class adaptador_categoria extends ArrayAdapter<categoria> implements Resp
                 Button btn = (Button) v;
                 String txt = btn.getText().toString();
                 Toast.makeText(context,txt,Toast.LENGTH_SHORT).show();
-                rq = Volley.newRequestQueue(context);
-                crearListaProductos(txt);
+                opcion = 1;
+                crearListaProductos(txt,opcion);
             }
         });
         return  view;
     }
 
-    public void crearListaProductos(String categoria){
-        String url = "https://ezjr.000webhostapp.com/PHP/getProductos_categoria.php?categoria="+categoria;
-        jrq = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
-        rq.add(jrq);
+    public void crearListaProductos(String texto,int opc){
+        if(opc == 1){
+            String url = "https://ezjr.000webhostapp.com/PHP/getProductos_categoria.php?categoria="+texto;
+            jrq = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
+            rq.add(jrq);
+        }
+        if(opc == 2){
+            String url = "https://ezjr.000webhostapp.com/PHP/getProductos_nombre.php?nombre="+texto;
+            jrq = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
+            rq.add(jrq);
+        }
     }
 
     @Override
@@ -97,33 +123,71 @@ public class adaptador_categoria extends ArrayAdapter<categoria> implements Resp
 
     @Override
     public void onResponse(JSONObject response) {
-        try {
-            //----------PRODUCTOS------------
-            JSONArray arreglo = new JSONArray(response.getString("resultado"));
-            JSONObject[] datos = new JSONObject[arreglo.length()];
-            for(int i = 0;i < arreglo.length();i++){
-                datos[i] = (JSONObject) arreglo.get(i);
-            }
-            ids = new ArrayList<>();
-            nombres = new ArrayList<>();
-            precios = new ArrayList<>();
-            ingredientes = new ArrayList<>();
-            for(int i = 0;i < arreglo.length();i++){
-                ids.add(datos[i].getString("id"));
-                nombres.add(datos[i].getString("nombre"));
-                precios.add(datos[i].getString("precio"));
-                ingredientes.add(datos[i].getString("ingredientes"));
-            }
+        if(opcion == 1){
+            try {
+                //----------PRODUCTOS------------
+                JSONArray arreglo = new JSONArray(response.getString("resultado"));
+                JSONObject[] datos = new JSONObject[arreglo.length()];
+                for(int i = 0;i < arreglo.length();i++){
+                    datos[i] = (JSONObject) arreglo.get(i);
+                }
+                ids = new ArrayList<>();
+                nombres = new ArrayList<>();
+                precios = new ArrayList<>();
+                ingredientes = new ArrayList<>();
+                for(int i = 0;i < arreglo.length();i++){
+                    ids.add(datos[i].getString("id"));
+                    nombres.add(datos[i].getString("nombre"));
+                    precios.add(datos[i].getString("precio"));
+                    ingredientes.add(datos[i].getString("ingredientes"));
+                }
 
-            lista_pro = new ArrayList<>();
-            for(int i = 0;i < arreglo.length();i++){
-                lista_pro.add(new producto(ids.get(i),nombres.get(i),precios.get(i),ingredientes.get(i)));
-            }
-            adaptador_producto adaptador_producto = new adaptador_producto(context,R.layout.boton_producto,lista_pro,ordenar,activity);
+                lista_pro = new ArrayList<>();
+                for(int i = 0;i < arreglo.length();i++){
+                    lista_pro.add(new producto(ids.get(i),nombres.get(i),precios.get(i),ingredientes.get(i)));
+                }
+                adaptador_producto adaptador_producto = new adaptador_producto(context,R.layout.boton_producto,lista_pro,ordenar,activity);
 
-            listView2.setAdapter(adaptador_producto);
-        } catch (JSONException e) {
-            e.printStackTrace();
+                listView2.setAdapter(adaptador_producto);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        if(opcion == 2){
+            try {
+                String r = response.getString("resultado");
+                if(r.equals("No existe el producto")){
+                    Toast.makeText(context,r,Toast.LENGTH_SHORT).show();
+                }else{
+                    JSONArray arreglo = new JSONArray(response.getString("resultado"));
+                    JSONObject[] datos = new JSONObject[arreglo.length()];
+                    for(int i = 0;i < arreglo.length();i++){
+                        datos[i] = (JSONObject) arreglo.get(i);
+                    }
+                    ids = new ArrayList<>();
+                    nombres = new ArrayList<>();
+                    precios = new ArrayList<>();
+                    ingredientes = new ArrayList<>();
+                    for(int i = 0;i < arreglo.length();i++){
+                        ids.add(datos[i].getString("id"));
+                        nombres.add(datos[i].getString("nombre"));
+                        precios.add(datos[i].getString("precio"));
+                        ingredientes.add(datos[i].getString("ingredientes"));
+                    }
+
+                    lista_pro = new ArrayList<>();
+                    for(int i = 0;i < arreglo.length();i++){
+                        lista_pro.add(new producto(ids.get(i),nombres.get(i),precios.get(i),ingredientes.get(i)));
+                    }
+                    adaptador_producto adaptador_producto = new adaptador_producto(context,R.layout.boton_producto,lista_pro,ordenar,activity);
+
+                    listView2.setAdapter(adaptador_producto);
+                }
+
+                ED_buscar.setText("");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

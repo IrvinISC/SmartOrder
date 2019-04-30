@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,7 +24,8 @@ public class ordenar extends AppCompatActivity {
     ArrayList<String> nombres;
     ArrayList<String> precios;
     ArrayList<String> ingredientes;
-    private int VERSION = 5;
+    private int VERSION = 6;
+    View dialogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class ordenar extends AppCompatActivity {
         nombres = new ArrayList<>();
         precios = new ArrayList<>();
         ingredientes = new ArrayList<>();
+        dialogo = getLayoutInflater().inflate(R.layout.dialog_editar_ing,null);
 
         reporteProducto();
     }
@@ -67,7 +70,7 @@ public class ordenar extends AppCompatActivity {
         }
 
         listView = (ListView) findViewById(R.id.LV_orden);
-        adaptador_orden adaptador_orden = new adaptador_orden(this,R.layout.lista_orden,lista_pro,listView);
+        adaptador_orden adaptador_orden = new adaptador_orden(this,R.layout.lista_orden,lista_pro,listView,dialogo);
 
         listView.setAdapter(adaptador_orden);
     }

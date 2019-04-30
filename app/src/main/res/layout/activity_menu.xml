@@ -7,18 +7,6 @@
     tools:context=".menu"
     android:background="@color/gris">
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginLeft="210dp"
-        android:layout_weight="1"
-        android:background="@color/grisM"
-        android:text=""
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -125,28 +113,52 @@
             android:layout_marginLeft="5dp"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/buscar"
-                android:ems="10"
-                android:hint="Buscar"
-                android:textSize="20sp"
-                android:inputType="textPersonName"
-                android:textColor="@drawable/txt_btn_uno"
-                android:shadowColor="#666666"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="1" />
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ED_buscar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Buscar"
+                    android:inputType="text"
+                    android:shadowColor="#666666"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:textColor="@drawable/txt_btn_uno"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/LA_buscar"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:lottie_imageAssetsFolder="assets"
+                    app:lottie_fileName="buscar.json"
+                    app:lottie_loop="false"
+                    android:layout_weight="4"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grisM"
+                android:text=""
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout" />
 
             <ListView
                 android:id="@+id/LV_productos"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scrollbars="none"
                 android:divider="@android:color/transparent"
-                android:dividerHeight="0dp" />
+                android:dividerHeight="0dp"
+                android:scrollbars="none" />
 
         </LinearLayout>
     </LinearLayout>
