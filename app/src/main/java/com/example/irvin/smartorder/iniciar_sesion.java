@@ -1,6 +1,7 @@
 package com.example.irvin.smartorder;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -42,6 +43,8 @@ public class iniciar_sesion extends AppCompatActivity implements Response.Listen
     private String user, password, nombre;
     private LottieAnimationView usuarios, contrasenas;
     private static final long DURATION_TRANSITION = 500;
+
+    private int VERSION = 9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +108,7 @@ public class iniciar_sesion extends AppCompatActivity implements Response.Listen
                 nombre = datosJSON.getString("Nombre");
                 user = datosJSON.getString("Usuario");
                 password = datosJSON.getString("contrasena");
-                if(password.equals(pass.getText().toString())){
+                if(password.equals(pass.getText().toString()) && user.equals(usuario.getText().toString())){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                         /*transition.setDuration(DURATION_TRANSITION);
                         transition.setInterpolator(new DecelerateInterpolator());*/
@@ -123,9 +126,10 @@ public class iniciar_sesion extends AppCompatActivity implements Response.Listen
                     limpiarCampos();
                     Intent intent = new Intent(iniciar_sesion.this,escoger_lugar.class);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        agregarUsuario(user,nombre,password);
                         startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle());
-
                     }else{
+                        agregarUsuario(user,nombre,password);
                         startActivity(intent);
                     }
                     Toast.makeText(iniciar_sesion.this,"Bienvenido "+nombre,Toast.LENGTH_SHORT).show();
@@ -149,5 +153,13 @@ public class iniciar_sesion extends AppCompatActivity implements Response.Listen
             clic(view);
         }
 
+    }
+
+    public void agregarUsuario(String usuario, String nombre, String contrasena) {
+        baseDatosLocal md = new baseDatosLocal(this,"BD_SO",null, VERSION);
+        SQLiteDatabase bd = md.getWritableDatabase();
+        String consulta = "INSERT INTO usuario(usuario,nombre,contrasena) VALUES('"+usuario+"','"+nombre+"','"+contrasena+"')";
+        bd.execSQL(consulta);
+        bd.close();
     }
 }

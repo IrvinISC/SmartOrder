@@ -1,5 +1,6 @@
 package com.example.irvin.smartorder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,7 +18,7 @@ public class menu extends AppCompatActivity {
 
     List<categoria> lista_cat;
     ListView listView,listView2;
-    Button ordenar;
+    Button ordenar,cuenta;
     ArrayList<String> nom;
     LottieAnimationView buscar;
     EditText ED_buscar;
@@ -36,6 +37,7 @@ public class menu extends AppCompatActivity {
         ED_buscar = (EditText) findViewById(R.id.ED_buscar);
         buscar = (LottieAnimationView) findViewById(R.id.LA_buscar);
         ordenar = (Button) findViewById(R.id.BTN_ordenar);
+        cuenta = (Button) findViewById(R.id.BTN_cuenta);
         listView = (ListView) findViewById(R.id.LV_categoria);
         listView2 = (ListView) findViewById(R.id.LV_productos);
 
@@ -49,6 +51,12 @@ public class menu extends AppCompatActivity {
                 Toast.makeText(menu.this,"No has seleccionado tu comida",Toast.LENGTH_SHORT).show();
             }
         });
-
+        cuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(menu.this,cuenta.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -25,7 +25,7 @@ public class adaptador_producto extends ArrayAdapter<producto> {
     int resource;
     List<producto> lista_pro;
     Button ordenar;
-    private int VERSION = 6;
+    private int VERSION = 9;
     Activity activity;
     boolean bandera = true;
 
@@ -87,7 +87,7 @@ public class adaptador_producto extends ArrayAdapter<producto> {
     public String reporteProducto() {
         baseDatosLocal md = new baseDatosLocal(context, "BD_SO", null, VERSION);
         SQLiteDatabase bd = md.getReadableDatabase();
-        Cursor c = bd.rawQuery("SELECT * FROM pro_seleccionados", null);
+        Cursor c = bd.rawQuery("SELECT * FROM pro_seleccionados WHERE activo = '1'", null);
         if (c.moveToFirst()) {
             do {
             } while (c.moveToNext());

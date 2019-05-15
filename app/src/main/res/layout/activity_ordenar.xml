@@ -43,40 +43,40 @@
         android:paddingRight="40dp">
 
         <Button
-            android:id="@+id/BTN_pedir_orn"
+            android:id="@+id/BTN_cancelar_ord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginRight="40dp"
+            android:layout_weight="1"
             android:background="@drawable/shadow"
             android:fontFamily="@font/roboto"
             android:padding="10dp"
+            android:shadowColor="#666666"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
             android:text="Cancelar orden"
             android:textColor="@drawable/txt_btn_uno"
-            android:textSize="20sp"
-            android:layout_weight="1"
-            android:layout_marginRight="40dp"
-            android:shadowColor="#666666"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="1"/>
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/BTN_cancelar_orn"
+            android:id="@+id/BTN_confirmar_ord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_weight="1"
             android:background="@drawable/shadow"
             android:fontFamily="@font/roboto"
             android:padding="10dp"
-            android:text="Confirmar orden"
-            android:textColor="@drawable/txt_btn_uno"
-            android:textSize="20sp"
-            android:layout_weight="1"
-            android:layout_marginLeft="40dp"
             android:shadowColor="#666666"
             android:shadowDx="1"
             android:shadowDy="1"
-            android:shadowRadius="1"/>
+            android:shadowRadius="1"
+            android:text="Confirmar orden"
+            android:textColor="@drawable/txt_btn_uno"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -209,7 +209,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/LV_orden"
+        android:id="@+id/LV_cuenta"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="110dp"

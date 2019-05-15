@@ -29,7 +29,7 @@ public class adaptador_ingredientes extends ArrayAdapter<ingrediente> {
     View dialogo;
     AlertDialog alertDialog;
     ListView ingredientes;
-    private int VERSION = 6;
+    private int VERSION = 9;
     boolean checked[];
 
     public adaptador_ingredientes(Context context, int resource, final List<ingrediente> lista_ing,

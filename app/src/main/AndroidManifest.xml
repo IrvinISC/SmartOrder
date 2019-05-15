@@ -11,13 +11,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ordenar"></activity>
-        <activity android:name=".preparar_menu"></activity>
-        <activity android:name=".escoger_lugar" />
-        <activity android:name=".iniciar_sesion" />
-        <activity android:name=".registrarse" />
-        <activity android:name=".Inicio"></activity>
-        <activity android:name=".menu"></activity>
+        <activity
+            android:name=".cuenta"
+            android:screenOrientation="landscape"
+            ></activity>
+        <activity
+            android:name=".ordenar"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".preparar_menu"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".escoger_lugar"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".iniciar_sesion"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".registrarse"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Inicio"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".menu"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".splash"
             android:theme="@style/SplashTheme">

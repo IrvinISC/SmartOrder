@@ -35,7 +35,7 @@ public class adaptador_orden extends ArrayAdapter<producto> {
     ArrayList<String> precios;
     ArrayList<String> ingredientes;
     ArrayList<String> ing_separados;
-    private int VERSION = 6;
+    private int VERSION = 9;
     View dialogo;
 
     public adaptador_orden(Context context, int resource, List<producto> lista_pro, ListView listView, View dialogo){
@@ -66,10 +66,16 @@ public class adaptador_orden extends ArrayAdapter<producto> {
         pro.setText(producto.getNombre());
         precio.setText("$"+producto.getPrecio());
 
+        String list_ing = lista_pro.get(position).getIngredientes();
+        ing_separados.clear();
+        lista_ing.clear();
+        ingredientes(Integer.parseInt(lista_pro.get(position).getId()),list_ing);
+
         editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 editar.playAnimation();
+
                 String list_ing = lista_pro.get(position).getIngredientes();
                 ing_separados.clear();
                 lista_ing.clear();
@@ -139,7 +145,7 @@ public class adaptador_orden extends ArrayAdapter<producto> {
         ingredientes = new ArrayList<>();
         baseDatosLocal md = new baseDatosLocal(context,"BD_SO",null, VERSION);
         SQLiteDatabase bd = md.getReadableDatabase();
-        Cursor c  = bd.rawQuery("SELECT * FROM pro_seleccionados",null);
+        Cursor c  = bd.rawQuery("SELECT * FROM pro_seleccionados WHERE  activo = '1'",null);
         int id;
         String nombre = "", precio = "", ingrediente = "";
         if(c.moveToFirst()){
